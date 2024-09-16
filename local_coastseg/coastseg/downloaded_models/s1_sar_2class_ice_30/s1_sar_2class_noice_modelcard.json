@@ -1,0 +1,67 @@
+{
+	"DETAILS": {
+	"NAME": "SAR Classification 3 bands, 2 classes, ice images",
+    "DATE": "2024-08-28",
+    "URL":"10.5281/zenodo.6229071",
+    "CITATION":"DeVore, Anderson (2024)",
+    "QUERIES": "https://github.com/Doodleverse/segmentation_zoo/issues",
+    "CREDIT":"Katherine DeVore, Dylan Anderson",
+    "INTENDED_PURPOSE":"Sentinel-1 satellite image segmentation",
+    "KEYWORDS": {
+      "1": "Sentinel-1",
+	  "8": "other"
+    }
+	},  
+	"DATASET": {
+		"NAME": "SAR Classification 3 bands, 2 classes, ice images", 
+    "SOURCE": "https://cmgds.marine.usgs.gov/data-releases/datarelease/10.5066-P91NP87I",
+    "CITATION": "Buscombe, Daniel, Goldstein, Evan, Bernier, Julie, Bosse, Stephen, Colacicco, Rosa, Corak, Nick, Fitzpatrick, Sharon, del Jesús González Guillén, Anais, Ku, Venus, Paprocki, Julie, Platt, Lindsay, Steele, Bethel, Wright, Kyle, & Yasin, Brandon. (2022). Images and 4-class labels for semantic segmentation of Sentinel-2 and Landsat RGB satellite images of coasts (water, whitewater, sediment, other) (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7335647",
+    "NUMBER_LABELED_IMAGES": 262,
+		"CLASSES": {
+			"0": "water",
+			"1": "land"
+		},
+		"N_DATA_BANDS": 3,
+    "BAND_NAMES": {
+      "0": "red",
+      "1": "green",
+      "2": "blue"
+    }
+	},
+	"MODEL": {
+	"NAME": "resunet",
+    "KERNEL":7,
+    "STRIDE":2,
+    "FILTERS":4    
+	},
+	"TRAINING": {
+    "BATCH_SIZE": 10,
+    "DROPOUT":0.1,
+    "DROPOUT_CHANGE_PER_LAYER":0.0,
+    "DROPOUT_TYPE":"standard",
+    "USE_DROPOUT_ON_UPSAMPLING":false,
+    "LOSS":"dice",
+	"PATIENCE": 10,
+	"MAX_EPOCHS": 100,
+	"VALIDATION_SPLIT": 0.5,
+	"RAMPUP_EPOCHS": 20,
+	"SUSTAIN_EPOCHS": 0.0,
+	"EXP_DECAY": 0.9,
+	"START_LR":  1e-7,
+	"MIN_LR": 1e-8,
+	"MAX_LR": 1e-5,
+	"MODE": "all"	 
+	},
+	"AUGMENTATION": {
+    "AUGMENTATION_USED": true,
+	"AUG_ROT": 0,
+	"AUG_ZOOM": 0,
+	"AUG_WIDTHSHIFT": 0,
+	"AUG_HEIGHTSHIFT": 0,
+	"AUG_HFLIP": false,
+	"AUG_VFLIP": false,
+	"AUG_LOOPS": 2,
+	"AUG_COPIES": 1
+	}     
+}
+
